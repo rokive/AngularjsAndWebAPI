@@ -1,0 +1,151 @@
+﻿<div div class="container-fluid table-responsive">
+    <form class="form-horizontal" ng-submit="issue()" name="bookIssue" novalidate>
+        <fieldset>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Student Id:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.studentId.$invalid && !bookIssue.studentId.$pristine}">
+                    <input type="text" class="form-control" name="studentId" ng-model="studentId" my-enter="findStudent()" ng-change="studentIdChange()" placeholder="Enter The Student Id" isbn required ng-maxlength="10" ng-minlength="10" />
+                    <p ng-show="bookIssue.studentId.$invalid && !bookIssue.studentId.$pristine" class=" help-block">Student id is required.</p>
+                    <p ng-show="bookIssue.studentId.$error.maxlength" class="help-block">Student id is too long.</p>
+                    <p ng-show="bookIssue.studentId.$error.minlength" class=" help-block">Student id is too short.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Student Name:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.studentName.$invalid && !bookIssue.studentName.$pristine}">
+                    <input type="text" class="form-control" name="studentName" ng-model="studentName" readonly required />
+                    <p ng-show="bookIssue.studentName.$invalid && !bookIssue.studentName.$pristine" class=" help-block">student Name  is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Already Issue Qty:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" ng-model="totalIssueqty" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Issue Date:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.issueDate.$invalid && !bookIssue.issueDate.$pristine}">
+                    <input type="date" class="form-control" name="issueDate" ng-model="issueDate" required /><br />
+                    <p ng-show="bookIssue.issueDate.$invalid && !bookIssue.issueDate.$pristine" class=" help-block">Issue Date  is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">ISBN:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.isbn.$invalid && !bookIssue.isbn.$pristine}">
+                    <input type="text" class="form-control" name="isbn" ng-model="isbn" my-enter="findBook()" placeholder="Enter The ISBN NO" ng-change="isbnChange()" isbn required ng-maxlength="13" ng-minlength="10" />
+                    <p ng-show="bookIssue.isbn.$invalid && !bookIssue.isbn.$pristine" class=" help-block">ISBN is required.</p>
+                    <p ng-show="bookIssue.isbn.$error.maxlength" class="help-block">ISBN is too long.</p>
+                    <p ng-show="bookIssue.isbn.$error.minlength" class=" help-block">ISBN is too short.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Title:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.title.$invalid && !bookIssue.title.$pristine}">
+                    <input type="text" class="form-control" name="title" ng-model="title" readonly required />
+                    <p ng-show="bookIssue.title.$invalid && !bookIssue.title.$pristine" class=" help-block">Title is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Author:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.author.$invalid && !bookIssue.author.$pristine}">
+                    <input type="text" class="form-control" name="author" ng-model="author" readonly required />
+                    <p ng-show="bookIssue.author.$invalid && !bookIssue.author.$pristine" class=" help-block">Author is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Publisher:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : bookIssue.publisher.$invalid && !bookIssue.publisher.$pristine}">
+                    <input type="text" class="form-control" name="publisher" ng-model="publisher" readonly />
+                    <p ng-show="bookIssue.publisher.$invalid && !bookIssue.publisher.$pristine" class=" help-block">Publisher is required.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default" ng-click="addBook()">Add Book</button>
+                </div>
+            </div>
+        </fieldset>
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="15%">ISBN</th>
+                        <th width="25%">Book Title</th>
+                        <th width="25%">Author Name</th>
+                        <th width="25%">Publisher Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="book in books track by $index">
+                        <td>
+                            {{ book.ISBN }}
+                        </td>
+                        <td>
+                            {{ book.BookTitle }}
+                        </td>
+                        <td>
+                            {{ book.AuthorName }}
+                        </td>
+                        <td>
+                            {{ book.PublisherName }}
+                        </td>
+                        <td>
+                            <button type="button" ng-click="removeBook($index)">Remove Book</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>
+                            ISBN
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Author
+                        </th>
+                        <th>
+                            Publisher
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="book in books track by $index">
+                        <td>
+                            {{ book.ISBN }}
+                        </td>
+                        <td>
+                            {{ book.BookTitle }}
+                        </td>
+                        <td>
+                            {{ book.AuthorName }}
+                        </td>
+                        <td>
+                            {{ book.PublisherName }}
+                        </td>
+                        <td>
+                            <button type="button" ng-click="removeBook($index)">Remove Book</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+        </div>
+        <div class="form-group">
+            
+
+           <div clas
+            s=
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-default" value="Issue" />
+            </div>
+        </div>
+    </form>
+
+</div>

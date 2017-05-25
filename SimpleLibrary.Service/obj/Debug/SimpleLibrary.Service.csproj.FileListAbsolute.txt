@@ -1,0 +1,9 @@
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\SimpleLibrary.Service.dll
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\SimpleLibrary.Service.pdb
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\SimpleLibrary.Repository.dll
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\EntityFramework.dll
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\SimpleLibrary.Repository.pdb
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\bin\Debug\EntityFramework.xml
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\obj\Debug\SimpleLibrary.Service.csprojResolveAssemblyReference.cache
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\obj\Debug\SimpleLibrary.Service.dll
+C:\Users\ROkivepk\documents\visual studio 2013\Projects\SimpleLibrary.Web\SimpleLibrary.Service\obj\Debug\SimpleLibrary.Service.pdb

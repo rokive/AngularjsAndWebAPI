@@ -1,0 +1,76 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+   
+    <script src="~/Scripts/angular-chosen.min.js"></script>
+
+    <script src="~/Scripts/loadingoverlay.min.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/angular-chart.min.js"></script>
+    <link href="~/Content/angular-chart.min.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="~/SPA/ApiService.js"></script>
+
+    <script src="~/SPA/Controller/MainController.js"></script>
+    <script src="~/SPA/Controller/HomeController.js"></script>
+
+    <script src="~/SPA/Controller/BookController.js"></script>
+    <script src="~/SPA/Controller/bookissuecontroller.js"></script>
+    <script src="~/SPA/Controller/StudentController.js"></script>
+
+    <script src="~/SPA/App.js"></script>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("sequence", "");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+    </script>
+    @*Menu*@
+    <link href="~/Content/ng-bootstrap-submenu.css" rel="stylesheet" />
+    <script src="~/Scripts/ng-bootstrap-submenu.js"></script>
+</head>
+<body>
+    <div ng-app="App" ng-controller="MainController">
+        <div ng-show="isError" style="padding:10px">
+            <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Web Service Error:</span>
+                {{errorMessage}}
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/#/student">Student</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/#/book">Book</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="~/#/book-issue">Book Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div ng-view>
+        </div>
+
+
+    </div>
+</body>
+</html>

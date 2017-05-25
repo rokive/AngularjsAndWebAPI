@@ -1,0 +1,64 @@
+﻿<div div class="container-fluid table-responsive">
+    <form class="form-horizontal" ng-submit="save()" name="book" novalidate>
+        <fieldset>
+            <legend>book:</legend>
+            <div class="form-group">
+                <label class="control-label col-sm-2">ISBN:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : book.isbn.$invalid && !book.isbn.$pristine}">
+                    <input type="text" name="isbn" ng-model="isbn" class="form-control" placeholder="Enter The ISBN No" isbn required ng-maxlength="13" ng-minlength="10" />
+                    <p ng-show="book.isbn.$invalid && !book.isbn.$pristine" class=" help-block">ISBN is required.</p>
+                    <p ng-show="book.isbn.$error.maxlength" class="help-block">ISBN is too long.</p>
+                    <p ng-show="book.isbn.$error.minlength" class=" help-block">ISBN is too short.</p>
+                </div>
+                
+                <label class="control-label col-sm-2">Book Title:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : book.bookTitle.$invalid && !book.bookTitle.$pristine}">
+                    <input type="text" name="bookTitle" ng-model="bookTitle" class="form-control" required maxlength="50" />
+                    <p ng-show="book.bookTitle.$invalid && !book.bookTitle.$pristine" class=" help-block">book title is required.</p>
+                    <p ng-show="book.bookTitle.$error.maxlength" class="help-block">book title is too long.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Author Name:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : book.authorName.$invalid && !book.authorName.$pristine}">
+                    <input type="text" name="authorName" ng-model="authorName" class="form-control" required maxlength="50" />
+                    <p ng-show="book.authorName.$invalid && !book.authorName.$pristine" class=" help-block">author name is required.</p>
+                    <p ng-show="book.authorName.$error.maxlength" class="help-block">author name is too long.</p>
+                </div>
+
+                <label class="control-label col-sm-2">Publisher Name:</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : book.publisherName.$invalid && !book.publisherName.$pristine}">
+                    <input type="text" name="publisherName" ng-model="publisherName" class="form-control" required maxlength="50" />
+                    <p ng-show="book.publisherName.$invalid && !book.publisherName.$pristine" class=" help-block">publisher name is required.</p>
+                    <p ng-show="book.publisherName.$error.maxlength" class="help-block">publisher name is too long.</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="submit" class="btn btn-default" ng-disabled="book.$invalid">Save</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="15%">ISBN</th>
+                <th width="25%">Book Title</th>
+                <th width="25%">Author Name</th>
+                <th width="25%">Publisher Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in bookList">
+                <td>{{x.ISBN}}</td>
+                <td>{{x.BookTitle}}</td>
+                <td>{{x.AuthorName}}</td>
+                <td>{{x.PublisherName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<uib-pagination total-items="data.lowstockdata.totalitems" max-size="8" ng-model="data.lowstockdata.currentPage" ng-change="pageChanged()"></uib-pagination>
